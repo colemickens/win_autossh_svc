@@ -1,0 +1,1 @@
+cygrunsrv -R reverse_winrdp_proxy2; cygrunsrv -I reverse_winrdp_proxy2 -u "REDMOND\colemick" -p /usr/bin/autossh -a "-f -M 20000 -R 22222:localhost:3389 -D 8080 -i /cygdrive/c/Users/colemick/.ssh/id_rsa cole@mickens.io" -e AUTOSSH_NTSERVICE=yes
