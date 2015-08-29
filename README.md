@@ -1,12 +1,14 @@
-reverse_winrdp_proxy
+win_autossh_svc
 --------------------
 
-This will install a Windows service that utilize's Cygwin's autossh to maintain a reverse proxy connection to your local RDP.
+This will install a Windows service that utilize's Cygwin's autossh to maintain a reverse tunnel to a port on a "remote" computer.
+
+The current config points the tunnel to 3389 on the destination machine and makes it available at 33890 on your local machine.
 
 Some terms:
 
-* LOCALMACHINE: the machine you're trying to RDP from
-* REMOTEMACHINE: the machine running the RDP service you want to RDP into
+* LOCALMACHINE: the machine you're connecting from
+* REMOTEMACHINE: the machine you're connecting to
 * REMOTESERVER: the third, world accessible machine to establish the ssh tunnel through
 
 Create a reverse tunnel into the REMOTEMACHINE via REMOTESERVER:
@@ -23,7 +25,7 @@ Create a tunnel from LOCALMACHINE to REMOTEMACHINE via REMOTESERVER:
 
 1. Use `client.bat` to create another tunnel to the REMOTESERVER
 
-2. RDP into `localhost:33890` which is the local end of the tunnel that is eventually connected to REMOTESERVER. This might look like `xfreerdp /v:localhost:33890 /u:USERNAME /p:PASSWORD`.
+2. Your local port 33890 is now connected to 3389 on the remote machine
 
 Note: You will have to update the password associated with the service whenever your user password changes
 
